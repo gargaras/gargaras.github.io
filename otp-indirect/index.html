@@ -1,3 +1,5 @@
+  <script src="https://gist.github.com/jmhdez/6405474/raw/8f4bdbb07b58eef2834ef72a66bdd56902e58419/console.js"></script>
+
 esto es una prueba
 <input type="text" name="" value="" id="resultado">
 <script>
@@ -14,11 +16,11 @@ esto es una prueba
   if ('OTPCredential' in window) {
       
     navigator.credentials.get({otp: {transport: ['sms']}})
-      .then((code) => alert('Code received: ' + code))
-      .catch((error) => alert('SMS receiving error: ' + error));
+      .then((code) => console.log('Code received: ' + code))
+      .catch((error) => console.log('SMS receiving error: ' + error));
       document.getElementById("resultado").value = code;
   } else {
-    alert('Web OTP API not supported');
+    console.log('Web OTP API not supported');
     document.getElementById("resultado").value = 'Web OTP API not supported';
   }
 </script>
