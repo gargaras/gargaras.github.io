@@ -1,10 +1,11 @@
-  <script src="https://gist.github.com/jmhdez/6405474/raw/8f4bdbb07b58eef2834ef72a66bdd56902e58419/console.js"></script>
 
 esto es una prueba
 <input type="text" name="" value="" id="resultado">
+
+<input type="text" name="" value="" id="resultado2">
+
+<input type="text" name="" value="" id="resultado3">
 <script>
-    javascript:(function () { var script = document.createElement('script'); script.src="http://eruda.liriliri.io/eruda.min.js"; document.body.appendChild(script); script.onload = function () { eruda.init() } })()
-    
     if (!window.OTPCredential) {
         alert('Feature Not Available');
         console.log('Feature Not Available');
@@ -16,7 +17,8 @@ esto es una prueba
       }
 
   if ('OTPCredential' in window) {
-      
+    document.getElementById("resultado2").value = 'entro sin preguntar';
+    document.getElementById("resultado3").value = navigator.credentials.get({otp: {transport: ['sms']}});
     navigator.credentials.get({otp: {transport: ['sms']}})
       .then((code) => console.log('Code received: ' + code))
       .catch((error) => console.log('SMS receiving error: ' + error));

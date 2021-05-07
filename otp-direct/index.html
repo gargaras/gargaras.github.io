@@ -4,7 +4,7 @@
     <title>Web OTP API Simplest v2 </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://gist.github.com/jmhdez/6405474/raw/8f4bdbb07b58eef2834ef72a66bdd56902e58419/console.js"></script>
+    
     <style>div {font-family: sans-serif;}</style>
   </head>
   <body>
@@ -26,8 +26,7 @@
         console.log('Feature Available');
       }
        
-      javascript:(function () { var script = document.createElement('script'); script.src="http://eruda.liriliri.io/eruda.min.js"; document.body.appendChild(script); script.onload = function () { eruda.init() } })()
-
+      
     if ('OTPCredential' in window) {
       window.addEventListener('DOMContentLoaded', e => {
         const input = document.querySelector('input[autocomplete="one-time-code"]');
