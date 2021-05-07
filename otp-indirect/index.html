@@ -18,14 +18,7 @@ esto es una prueba
 
   if ('OTPCredential' in window) {
     document.getElementById("resultado2").value = 'entro sin preguntar';
-    document.getElementById("resultado3").value = navigator.credentials.get({otp: {transport: ['sms']}});
-    navigator.credentials.get({otp: {transport: ['sms']}})
-      .then((code) => console.log('Code received: ' + code))
-      .catch((error) => console.log('SMS receiving error: ' + error));
-      document.getElementById("resultado").value = code;
-  } else {
-    console.log('Web OTP API not supported');
-    document.getElementById("resultado").value = 'Web OTP API not supported';
-  }
+    
+  } 
 </script>
 
