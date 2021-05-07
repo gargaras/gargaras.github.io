@@ -1,0 +1,23 @@
+esto es una prueba
+
+<script>
+    if (!window.OTPCredential) {
+        alert('Feature Not Available');
+        console.log('Feature Not Available');
+        
+      }
+      else{
+        alert('Feature Available');
+        console.log('Feature Available');
+      }
+
+  if ('OTPCredential' in window) {
+      
+    navigator.credentials.get({otp: {transport: ['sms']}})
+      .then((code) => alert('Code received: ' + code))
+      .catch((error) => alert('SMS receiving error: ' + error));
+  } else {
+    alert('Web OTP API not supported');
+  }
+</script>
+
