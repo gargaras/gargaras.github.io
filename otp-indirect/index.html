@@ -1,5 +1,5 @@
 esto es una prueba
-
+<input type="text" name="" value="" id="resultado">
 <script>
     if (!window.OTPCredential) {
         alert('Feature Not Available');
@@ -16,8 +16,10 @@ esto es una prueba
     navigator.credentials.get({otp: {transport: ['sms']}})
       .then((code) => alert('Code received: ' + code))
       .catch((error) => alert('SMS receiving error: ' + error));
+      document.getElementById("resultado").value = code;
   } else {
     alert('Web OTP API not supported');
+    document.getElementById("resultado").value = 'Web OTP API not supported';
   }
 </script>
 
