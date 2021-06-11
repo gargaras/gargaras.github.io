@@ -12,11 +12,13 @@
       <form action="/post" method="post">
         Enter OTP here:
         <input type="text" autocomplete="one-time-code" inputmode="numeric" name="one-time-code">
-        <input type="submit" id="post" value="Submit">
+
+        IOS OTP here:
+        <input type="tel" name="otp-code" auto-complete="one-time-code" />
       </form>
     </div>
     <script>
-
+/*
     if (!window.OTPCredential) {
         alert('Feature Not Available');
         console.log('Feature Not Available');
@@ -25,7 +27,7 @@
         alert('Feature Available');
         console.log('Feature Available');
       }
-       
+ */      
       
     if ('OTPCredential' in window) {
       window.addEventListener('DOMContentLoaded', e => {
