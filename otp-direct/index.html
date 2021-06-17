@@ -13,13 +13,11 @@
         Enter OTP here:
         <input type="text" autocomplete="one-time-code" inputmode="numeric" name="one-time-code">
 
-        IOS OTP here:
-        <input type="tel" name="otp-code" auto-complete="one-time-code" />
+        
       </form>
     </div>
     <script>
-/*
-    if (!window.OTPCredential) {
+      if (!window.OTPCredential) {
         alert('Feature Not Available');
         console.log('Feature Not Available');
       }
@@ -27,34 +25,29 @@
         alert('Feature Available');
         console.log('Feature Available');
       }
- */      
-      
-    if ('OTPCredential' in window) {
-      window.addEventListener('DOMContentLoaded', e => {
-        const input = document.querySelector('input[autocomplete="one-time-code"]');
-        const post = document.querySelector('#post');
-        if (!input) return;
-        const ac = new AbortController();
-        const form = input.closest('form');
-        if (form) {
-          form.addEventListener('submit', e => {
-            ac.abort();
+
+      if ('OTPCredential' in window) {
+        window.addEventListener('DOMContentLoaded', e => {
+          const input = document.querySelector('input[autocomplete="one-time-code"]');
+          if (!input) return;
+          const ac = new AbortController();
+          const form = input.closest('form');
+          if (form) {
+            form.addEventListener('submit', e => {
+              ac.abort();
+            });
+          }
+          navigator.credentials.get({
+            otp: { transport:['sms'] },
+            signal: ac.signal
+          }).then(otp => {
+            input.value = otp.code;
+            if (form) form.submit();
+          }).catch(err => {
+            console.log(err);
           });
-        }
-        navigator.credentials.get({
-          otp: { transport:['sms'] },
-          signal: ac.signal
-        }).then(otp => {
-          input.value = otp.code;
-          post.disabled = true;
-          if (form) setTimeout(() => {
-            form.submit();
-          }, 1000);
-        }).catch(err => {
-          console.log(err);
         });
-      });
-    }
+      }
     </script>
   </body>
 </html>
