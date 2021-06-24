@@ -16,7 +16,6 @@
           ac.abort();
         });
       }
-      alert("anda 1");
       navigator.credentials
         .get({
           otp: { transport: ["sms"] },
@@ -24,7 +23,6 @@
         })
         .then((otp) => {
           var valor = otp.code;
-          alert(valor);
           input.value = otp.code;
           if (form) form.submit();
         })
