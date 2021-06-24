@@ -16,6 +16,19 @@
           ac.abort();
         });
       }
+
+      (async () => {
+            try {
+                let getSMS = navigator.credentials.get({otp: { transport: ["sms"] }});
+                alert(getSMS);
+                console.log(getSMS);
+            } catch(err) {
+                alert("erro"+err);
+                console.log(err);
+            }
+      })();
+      
+      /*
       navigator.credentials
         .get({
           otp: { transport: ["sms"] },
@@ -29,7 +42,7 @@
         .catch((err) => {
           alert(err);
         });
-        
+        */
     });
   }
 </script>
