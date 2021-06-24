@@ -26,7 +26,6 @@
         .then((otp) => {
           var valor = otp.code;
           input.value = otp.code;
-          if (form) form.submit();
         })
         .catch((err) => {
           alert(err);
